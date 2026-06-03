@@ -27,7 +27,7 @@ jobs:
           TOKEN=$(az acr login --name "$ACR_NAME" --expose-token --output tsv --query accessToken)
           echo $TOKEN | docker login -u 00000000-0000-0000-0000-000000000000 --password-stdin "$ACR_NAME.azurecr.io"
           IMAGE="$ACR_NAME.azurecr.io/simple-webapp:latest"
-          docker build --platform linux/amd64 -t "$IMAGE" app
+          docker build --platform linux/arm64 -t "$IMAGE" app
           docker push "$IMAGE"
       - name: Get AKS credentials
         env:

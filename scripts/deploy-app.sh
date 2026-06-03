@@ -12,7 +12,7 @@ echo "Logging into ACR $acr_name..."
 az acr login --name "$acr_name"
 
 echo "Building Docker image $image..."
-docker build -t "$image" app --platform linux/amd64
+docker build --platform linux/arm64 -t "$image" app
 
 echo "Pushing image to ACR..."
 docker push "$image"
