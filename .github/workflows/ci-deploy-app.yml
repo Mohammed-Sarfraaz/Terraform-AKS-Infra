@@ -35,6 +35,7 @@ jobs:
           context: ./app
           file: ./app/Dockerfile
           push: true
+          platforms: linux/amd64
           tags: ${{ secrets.ACR_NAME }}.azurecr.io/simple-webapp:latest
       - name: Get AKS credentials
         run: |
